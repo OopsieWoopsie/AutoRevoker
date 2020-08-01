@@ -1,0 +1,10 @@
+name: AutoRevoker
+main: me.sheidy.autorevoker.AutoRevokerBukkit
+author: Sheidy
+version: 1
+depend: [AdvancedBan]
+commands:
+  ars:
+    description: See the current status of AutoRevoker
+    permission: autorevoker.status
+    aliases: [autorevoker]
