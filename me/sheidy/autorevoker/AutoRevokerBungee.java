@@ -43,7 +43,7 @@ public class AutoRevokerBungee extends Plugin implements Listener {
     private class ARSCommand extends Command {
 
         public ARSCommand() {
-            super("ars", "autorevoker.status");
+            super("ars", "autorevoker.status", "autorevoker");
         }
 
         @Override
