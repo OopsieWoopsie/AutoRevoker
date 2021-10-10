@@ -1,5 +1,5 @@
 name: AutoRevoker
 main: me.sheidy.autorevoker.AutoRevokerBungee
 author: Sheidy
-version: 1
+version: 1.1
 depends: [AdvancedBan]
