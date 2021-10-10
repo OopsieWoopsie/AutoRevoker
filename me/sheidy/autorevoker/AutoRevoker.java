@@ -12,6 +12,7 @@ import me.leoko.advancedban.manager.DatabaseManager;
 import me.leoko.advancedban.manager.PunishmentManager;
 import me.leoko.advancedban.manager.TimeManager;
 import me.leoko.advancedban.utils.Punishment;
+import java.util.logging.Logger;
 
 public class AutoRevoker extends Thread {
 
@@ -21,8 +22,11 @@ public class AutoRevoker extends Thread {
     private Method executeStatementMethod;
     private int currentId = -1;
 
-    public AutoRevoker() {
+    private final Logger logger;
+
+    public AutoRevoker(Logger logger) {
         super("AutoRevoker Thread");
+        this.logger = logger;
         this.map = Collections.synchronizedSortedMap(new TreeMap<Long, Punishment>());
 
         try {
@@ -59,8 +63,8 @@ public class AutoRevoker extends Thread {
                     waitFor(expireInMillis); // wait until it expires or a new punishment is added
 
                     if (pun.isExpired()) {
-                        String message = String.format("[AutoRevoker] Expired %s for %s", pun.getType().getName(), pun.getName());
-                        System.out.println(message);
+                        String message = String.format("Expired %s for %s", pun.getType().getName(), pun.getName());
+                        logger.info(message);
                         pun.delete();
                     }
 

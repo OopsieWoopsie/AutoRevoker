@@ -15,7 +15,7 @@ public class AutoRevokerBukkit extends JavaPlugin implements Listener, CommandEx
 
     @Override
     public void onEnable() {
-        autoRevoker = new AutoRevoker();
+        autoRevoker = new AutoRevoker(getLogger());
         autoRevoker.start();
         getServer().getPluginManager().registerEvents(this, this);
         getCommand("ars").setExecutor(this);

@@ -14,7 +14,7 @@ public class AutoRevokerBungee extends Plugin implements Listener {
 
     @Override
     public void onEnable() {
-        autoRevoker = new AutoRevoker();
+        autoRevoker = new AutoRevoker(getLogger());
         autoRevoker.start();
         getProxy().getPluginManager().registerListener(this, this);
         getProxy().getPluginManager().registerCommand(this, new ARSCommand());
